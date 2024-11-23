@@ -2,19 +2,21 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.74.0"
-    }
-    github = {
-      source  = "integrations/github"
-      version = "~> 6.0"
+      version = "~> 5.70"
     }
   }
+
+  cloud { 
+    
+    organization = "ahmed001" 
+
+    hostname = "app.terraform.io"
+    workspaces { 
+      name = "ahmed001" 
+    } 
+  } 
 }
 
 provider "aws" {
-  region     = var.aws_region
-  # access_key = var.aws_access_key
-  # secret_key = var.aws_secret_key
+  region = var.aws_region
 }
-
-provider "github" {}
